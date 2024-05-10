@@ -5,7 +5,7 @@ The assembled membrane can be created with CHARMM-GUI https://www.charmm-gui.org
 
 The steps to run the MD simulation are included in README. One can simply use the script to run the simulation. 
 
-After downloading the file, modify rcoulomb and rvdw from step6.0_minimization.mdp from 1.1 to 2.0. This will increase the threshold can prevent minimization from blowing up. Many warnings will be generated during the run. To ignore the warnings and prevent fatal execution, add ```-maxwarn 1``` to each gmx grompp command. Sometimes pressure would be impossible to fix. Switch the barostate from Parrinello-Rahman to berendsen. Remove the unsetenv GMX_MAXCONSTRWARN from README due to syntax. To run the MD simulation, one might call csh README to run the simulation. However, I found that the cluster takes the bash command better (see below). 
+After downloading the file, modify rcoulomb and rvdw from step6.0_minimization.mdp from 1.1 to 2.0. This will increase the threshold can prevent minimization from blowing up. Many warnings will be generated during the run. To ignore the warnings and prevent fatal execution, add ```-maxwarn 1``` to each gmx grompp command. Sometimes pressure would be impossible to fix. Switch the barostate from Parrinello-Rahman to berendsen. Remove the unsetenv GMX_MAXCONSTRWARN from README due to syntax. To run the MD simulation, one might call ```csh README``` to run the simulation. However, I found that the cluster takes the bash command better (see below). 
 
 ```
 gmx grompp -f step6.0_minimization.mdp -o step6.0_minimization.tpr -c step5_charmm2gmx.pdb -r step5_charmm2gmx.pdb -p system.top -n index.ndx -maxwarn 1
