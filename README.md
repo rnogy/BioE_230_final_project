@@ -1,6 +1,24 @@
 # BioE_230_final_project
-The final project for BioE 230
+Phase Separation Modeling of pH-Sensitive Liposomal Systems 
 
+Work by Ching Ting Roy Ng and Samantha Tran
+
+Introduction
+This project aims to utilize computational modeling to explore the phase separation behavior of mixed lipid systems, focusing on their relevance to drug delivery applications. Understanding the molecular-level interactions within these systems under varying physiological conditions is important for advancing research in the field.
+
+Background
+Mixed lipid systems have demonstrated effectiveness as carriers for a range of substances, including drugs and vaccines. However, a deeper comprehension of their behavior is essential for optimizing their use in research and industry. Liquid-liquid phase separation (LLPS) is a phenomenon observed in these systems, where components segregate into distinct phases due to differences in their affinities and interactions. One of the most studied LLPS lipid systems is DOPC:DPPC:Cholesterol which exhibits temperature-dependent behavior. Experimental observations have revealed two coexisting liquid phases enriched in unsaturated and saturated lipids, respectively. Additionally, some mixed lipid liposomes exhibit pH-dependent permeability, enabling controlled drug release in response to stimuli such as pH changes, which is particularly relevant in the acidic tumor microenvironment.
+
+Research objectives and approach
+This project aims to employ computer simulations to predict the phase separation behavior of mixed lipid systems. By investigating the dynamics of LLPS and imidazole-based pH-sensitive convertible liposome (ICL) compositions, simulations can offer insights into the design and optimization of drug delivery carriers with more control over drug release mechanisms.
+
+Methodology
+1. Model DOPC:DPPC:Cholesterol system as a preliminary benchmark.
+2. Utilize full atom representation and Martini coarse-grained models for simulation.
+3. For more complex systems like ICL, generate force field parameters with the Automated Topology Builder (ATB), assemble membranes with PACKMOL, and run simulations on GROMACS.
+4. Develop a phase separation index using Density-Based Spatial Clustering of Applications with Noise (DBSCAN) to quantify the extent of phase separation by cluster. Set parameters (eps and min_samples) relevant to the system under study.
+
+Code
 The assembled membrane can be created with CHARMM-GUI https://www.charmm-gui.org/. You can choose to assemble a membrane with a full-atom configuration or martini representation. Martini is a coarse-grained method that will greatly decrease the run time. Please refer to the CHARMM-GUI library for the available lipids https://www.charmm-gui.org/?doc=archive&lib=lipid. 
 
 The steps to run the MD simulation are included in README. One can simply use the script to run the simulation. 
