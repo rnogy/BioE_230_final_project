@@ -45,7 +45,7 @@ annealing-temp		 = 318 293 318 293
 ```
 step7_production.mdp. This will decrease the temperature linearly from 318K at 0 seconds to 293K at 100 ns. One should also increase the run time to 15000000.(20 fs * 15000000 steps -> 300 ns run time).
 
-To analyze the simulation result, I use ipynb. To generate video, I use UCSF Chimera. Using the MD Movie under tools, one can record the movie. To generate a timer, copy and plate the chimera.py into per-frame -> define script. To fix the periodic boundary, type ```echo "1 1" | gmx trjconv -s step7_production.tpr -f step7_production.xtc -o center.xtc -pbc mol -center```. To generate pdb from .gro, type ```gmx editconf -f step7_production.gro -o step7_production.pdb```.
+To analyze the simulation result, I use ipynb. It calls upon a helper function to generate xvg file for analysis. To generate video, I use UCSF Chimera. Using the MD Movie under tools, one can record the movie. To generate a timer, copy and paste code from chimera.py into per-frame -> define script. To fix the periodic boundary, type ```echo "1 1" | gmx trjconv -s step7_production.tpr -f step7_production.xtc -o center.xtc -pbc mol -center```. To generate pdb from .gro, type ```gmx editconf -f step7_production.gro -o step7_production.pdb```.
 
 If the lipid is not found in the library, one might choose to use a topology builder such as ATB to parametrize a new molecule https://atb.uq.edu.au/. Furthermore, it is possible to map the molecule into martini representation https://github.com/ricalessandri/Martini3-small-molecules/blob/main/tutorials/M3tutorials--parameterizing-a-new-small-molecule.md. Though, it will not be done in this project due to the complexity of such method.
 
