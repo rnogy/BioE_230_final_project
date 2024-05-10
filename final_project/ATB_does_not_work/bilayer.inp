@@ -1,0 +1,117 @@
+#
+# Lipid double layer with water over and below
+#
+
+#max number cycle.
+nloop0 1000
+
+# Every atom from diferent molecules will be far from each other at
+# least 2.0 Anstrons at the solution.
+tolerance 2.0 
+
+# Coordinate file types will be in pdb format (keyword not required for
+# pdb file format, but required for tinker, xyz or moldy).
+
+filetype pdb
+
+# The output pdb file
+
+output bilayer.pdb
+
+## Water on the top membrane
+#
+##structure water.pdb 
+#  number 2500
+#  inside box 0. 0. 29. 150 150. 50.
+#end structure
+
+##Water on the bottom layer
+  
+##structure water.pdb
+# number 2500
+# inside box 0. 0. -50. 150 150. -29.
+#end structure
+
+# Upper layer: the polar head is oriented facing water
+# molecules.
+# Inside box is the dim of the box. Width length height
+#below/above plane is x*y*z > c
+#atom we select 140 and 141 since they're the headgroups, facing top
+#likewise, 80, 81 facing down. It is to orientate the lipid
+
+structure DSPC.pdb 
+  number 70
+  inside box 0. 0. 0. 150 150. 30.
+  atoms 140 141
+    below plane 0. 0. 1. 2.
+  end atoms
+  atoms 80 81
+    over plane 0. 0. 1. 25.
+  end atoms
+end structure
+
+# lower layer: the polar head is oriented facing the water molecules.
+# Inside box is the dim of the box. Width length height
+#below/above plane is x*y*z > c
+#atom we select 140 and 141 since they're the headgroups, facing bottom
+#likewise, 80, 81 facing up to another layer. It is to orientate the lipid
+
+structure DSPC.pdb
+ number 70
+ inside box 0. 0. -30. 150 150. 0.
+ atoms 80 81
+   below plane 0. 0. 1. -2.
+ end atoms
+ atoms 140 141
+   over plane 0. 0. 1. -25.
+ end atoms
+end structure 
+
+#Upper membrane 
+structure DHI.pdb 
+  number 25
+  inside box 0. 0. 0. 150 150. 30.
+  atoms 1 2
+    below plane 0. 0. 1. 20.
+  end atoms
+  atoms 72 73
+    over plane 0. 0. 1. 25.
+  end atoms
+end structure
+
+#Lower membrane 
+structure DHI.pdb 
+  number 25
+  inside box 0. 0. -30. 150 150. 0.
+  atoms 72 73
+    below plane 0. 0. 1. -20.
+  end atoms
+  atoms 1 2
+    over plane 0. 0. 1. -25.
+  end atoms
+end structure
+
+#DPPE
+#Upper membrane
+structure DPPE.pdb 
+  number 5
+  inside box 0. 0. 0. 150 150. 30.
+  atoms 119 120
+    below plane 0. 0. 1. 20.
+  end atoms
+  atoms 64 65
+    over plane 0. 0. 1. 25.
+  end atoms
+end structure
+
+#Lower membrane 
+structure DPPE.pdb 
+  number 5
+  inside box 0. 0. -30. 150 150. 0.
+  atoms 64 65
+    below plane 0. 0. 1. -20.
+  end atoms
+  atoms 119 120
+    over plane 0. 0. 1. -25.
+  end atoms
+end structure

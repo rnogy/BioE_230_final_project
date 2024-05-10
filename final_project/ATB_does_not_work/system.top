@@ -1,0 +1,19 @@
+;;Manully generated
+
+; Include forcefield parameters
+#include "DHI.itp"
+#include "DPPE.itp"
+#include "DSPC.itp"
+#include "water.itp"
+
+
+[ system ]
+; Name
+Title
+
+[ molecules ]
+; Compound	#mols
+DPPE  	          10
+DHI  	          50
+DSPC  	          140
+water  	          5000
