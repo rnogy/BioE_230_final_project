@@ -1,7 +1,7 @@
 # BioE_230_final_project
 Phase Separation Modeling of pH-Sensitive Liposomal Systems 
 
-$${\color{purple}Work\space\space   by\space\space   Ching \space\space  Ting\space\space   Roy \space \space Ng\space \space  and\space\space   Samantha \space \space Tran}$$
+$${\color{purple}Work\space\space   by\space\space   Ching \space\space  Ting\space\space Roy \space \space Ng\space \space  and\space\space   Samantha \space \space Tran}$$
 
 ## Introduction
 This project aims to utilize computational modeling to explore the phase separation behavior of mixed lipid systems, focusing on their relevance to drug delivery applications. Understanding the molecular-level interactions within these systems under varying physiological conditions is important for advancing research in the field.
@@ -63,10 +63,10 @@ annealing-temp		 = 318 293 318 293
 ```
 step7_production.mdp. This will decrease the temperature linearly from 318K at 0 seconds to 293K at 100 ns. One should also increase the run time to 15000000.(20 fs * 15000000 steps -> 300 ns run time).
 
-To analyze the simulation result, I use ipynb. It calls upon a helper function to generate xvg file for analysis. To generate video, I use UCSF Chimera. Using the MD Movie under tools, one can record the movie. To generate a timer, copy and paste code from chimera.py into per-frame -> define script. To fix the periodic boundary, type ```echo "1 1" | gmx trjconv -s step7_production.tpr -f step7_production.xtc -o center.xtc -pbc mol -center```. To generate pdb from .gro, type ```gmx editconf -f step7_production.gro -o step7_production.pdb```.
+To analyze the simulation result, I used ipynb. It calls upon a helper function to generate xvg file for analysis. To generate video, I use UCSF Chimera. Using the MD Movie under tools, one can record the movie. To generate a timer, copy and paste code from chimera.py into per-frame -> define script. To fix the periodic boundary, type ```echo "1 1" | gmx trjconv -s step7_production.tpr -f step7_production.xtc -o center.xtc -pbc mol -center```. To generate pdb from .gro, type ```gmx editconf -f step7_production.gro -o step7_production.pdb```.
 
 If the lipid is not found in the library, one might choose to use a topology builder such as ATB to parametrize a new molecule https://atb.uq.edu.au/. Furthermore, it is possible to map the molecule into martini representation https://github.com/ricalessandri/Martini3-small-molecules/blob/main/tutorials/M3tutorials--parameterizing-a-new-small-molecule.md. Though, it will not be done in this project due to the complexity of such method.
 
-To assemble the membrane bilayer from ATB, one can download the pdb and itp files from ATB. After which, one can assemble a bilayer with packmol. Place pdb and itp files in a new folder, and download gromos54a7_atb.ff. Configure .inp file. Use ```packmol < bilayer.inp``` to generate pdb file for the assembled bilayer. Manually create a topol.top file, or system.top for convention. Add #include "molecule.itp", [system], [molecules] to the .top file. Follow the GROMACS tutorial until the hydration step, and remove all molecules within the lipid. However, we did not progress beyond the building bilayer step. 
+To assemble the membrane bilayer from ATB, one can download the pdb and itp files from ATB. After which, one can assemble a bilayer with packmol. Place pdb and itp files in a new folder, and download gromos54a7_atb.ff. Configure .inp file. Use ```packmol < bilayer.inp``` to generate pdb file for the assembled bilayer. Manually create a topol.top file, or system. top for the convention. Add #include "molecule.itp", [system], [molecules] to the .top file. Follow the GROMACS tutorial until the hydration step, and remove all molecules within the lipid. However, we did not progress beyond the building bilayer step. 
 
-Also please note some of the files are larger than GitHub's liking. I have tried zipping them but doesn't work, so I split them into many smaller pieces. Use ```cat * > zipfile.zip``` to join the big files back together, unzip and place them back into parent directory. 
+Also please note some of the files are larger than GitHub's liking. I have tried zipping them but doesn't work, so I split them into many smaller pieces. Use ```cat * > zipfile.zip``` to join the big files back together, unzip and place them back into the parent directory. 
