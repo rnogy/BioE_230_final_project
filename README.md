@@ -15,8 +15,8 @@ This project aims to employ computer simulations to predict the phase separation
 ## Methodology
 1. Model DOPC:DPPC:Cholesterol system as a preliminary benchmark.
 2. Utilize full atom representation and Martini coarse-grained models for simulation.
-3. For more complex systems like ICL, generate force field parameters with the Automated Topology Builder (ATB), assemble membranes with PACKMOL, and run simulations on GROMACS.
-4. Develop a phase separation index using Density-Based Spatial Clustering of Applications with Noise (DBSCAN) to quantify the extent of phase separation by cluster. Set parameters (eps and min_samples) relevant to the system under study.
+3. Develop a phase separation index using Density-Based Spatial Clustering of Applications with Noise (DBSCAN) to quantify the extent of phase separation by cluster. Set parameters (eps and min_samples) relevant to the system under study.
+4. For more complex systems like ICL, generate force field parameters with the Automated Topology Builder (ATB), assemble membranes with PACKMOL, and run simulations on GROMACS.
 
 ## Code
 The assembled membrane can be created with CHARMM-GUI https://www.charmm-gui.org/. You can choose to assemble a membrane with a full-atom configuration or martini representation. Martini is a coarse-grained method that will greatly decrease the run time. Please refer to the CHARMM-GUI library for the available lipids https://www.charmm-gui.org/?doc=archive&lib=lipid. 
