@@ -1,7 +1,7 @@
 # BioE_230_final_project
 Phase Separation Modeling of pH-Sensitive Liposomal Systems 
 
-$${\color{purple}Work\space\space   by\space\space   Ching \space\space  Ting\space\space Roy \space \space Ng\space \space  and\space\space   Samantha \space \space Tran}$$
+$${\color{yellow}Work\space\space   by\space\space   Ching \space\space  Ting\space\space Roy \space \space Ng\space \space  and\space\space   Samantha \space \space Tran}$$
 
 ## Introduction
 This project aims to utilize computational modeling to explore the phase separation behavior of mixed lipid systems, focusing on their relevance to drug delivery applications. Understanding the molecular-level interactions within these systems under varying physiological conditions is important for advancing research in the field.
@@ -61,7 +61,7 @@ annealing-npoints	 = 2 2
 annealing-time		 = 0 100000 0 100000
 annealing-temp		 = 318 293 318 293
 ```
-step7_production.mdp. This will decrease the temperature linearly from 318K at 0 seconds to 293K at 100 ns. One should also increase the run time to 15000000.(20 fs * 15000000 steps -> 300 ns run time).
+step7_production.mdp. This will decrease the temperature linearly from 318K at 0 seconds to 293K at 100 ns. One should also increase the run time to 15000000.(20 fs * 15000000 steps -> 300 ns run time). You might also want to change tau_p to a higher value (Ex. 10) to avoid system exploding due to unstable pressure change. People have ran SA with dT in 5-10 ps. Depending on what you want to do, you can increase or decrease the time it needed to get to the set temperature. 
 
 To analyze the simulation result, I used ipynb. It calls upon a helper function to generate xvg file for analysis. To generate video, I use UCSF Chimera. Using the MD Movie under tools, one can record the movie. To generate a timer, copy and paste code from chimera.py into per-frame -> define script. To fix the periodic boundary, type ```echo "1 1" | gmx trjconv -s step7_production.tpr -f step7_production.xtc -o center.xtc -pbc mol -center```. To generate pdb from .gro, type ```gmx editconf -f step7_production.gro -o step7_production.pdb```.
 
